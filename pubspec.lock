@@ -74,6 +74,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  google_maps_flutter:
+    dependency: "direct main"
+    description:
+      name: google_maps_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.21+12"
   http_parser:
     dependency: transitive
     description:
