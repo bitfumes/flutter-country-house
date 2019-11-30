@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Country extends StatelessWidget {
-  final Map country;
-  Country(this.country);
+  static const routeName = '/country';
 
   @override
   Widget build(BuildContext context) {
+    final Map country = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink,
@@ -59,12 +60,11 @@ class Country extends StatelessWidget {
             ),
             GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (ctx) =>
-                          CountryMap(country['name'], country['latlng']),
-                    ),
-                  );
+                  Navigator.of(context).pushNamed(CountryMap.routeName,
+                      arguments: {
+                        'name': country['name'],
+                        'latlng': country['latlng']
+                      });
                 },
                 child: CountryCard(title: 'Show on Map')),
           ],
