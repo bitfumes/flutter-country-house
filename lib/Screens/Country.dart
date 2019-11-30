@@ -9,7 +9,6 @@ class Country extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(country);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink,
@@ -62,7 +61,8 @@ class Country extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (ctx) => CountryMap(),
+                      builder: (ctx) =>
+                          CountryMap(country['name'], country['latlng']),
                     ),
                   );
                 },
